@@ -8,7 +8,8 @@
 import Foundation
 
 
-public struct Category {
+public struct Category : Identifiable, Hashable {
     
+    public let id = UUID()
     var name : String
 }

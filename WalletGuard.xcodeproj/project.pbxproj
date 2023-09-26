@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F6F6DDA2AC2B0F400C95ACB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */; };
+		3F6F6DDC2AC2B81000C95ACB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */; };
+		3F6F6DDF2AC2DFDC00C95ACB /* ApplicationDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */; };
 		3FA1CAEA2AA2EA2900C20540 /* WalletGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAE92AA2EA2900C20540 /* WalletGuardApp.swift */; };
 		3FA1CAEC2AA2EA2900C20540 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAEB2AA2EA2900C20540 /* LoginView.swift */; };
 		3FA1CAEE2AA2EA2A00C20540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA1CAED2AA2EA2A00C20540 /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDataManger.swift; sourceTree = "<group>"; };
 		3FA1CAE62AA2EA2900C20540 /* WalletGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA1CAE92AA2EA2900C20540 /* WalletGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuardApp.swift; sourceTree = "<group>"; };
 		3FA1CAEB2AA2EA2900C20540 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -106,6 +112,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F6F6DD82AC2B0CF00C95ACB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3F6F6DDD2AC2DFB500C95ACB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		3FA1CADD2AA2EA2900C20540 = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +151,8 @@
 		3FA1CAE82AA2EA2900C20540 /* WalletGuard */ = {
 			isa = PBXGroup;
 			children = (
+				3F6F6DDD2AC2DFB500C95ACB /* Common */,
+				3F6F6DD82AC2B0CF00C95ACB /* Extensions */,
 				3FA1CB2E2ABF022A00C20540 /* Models */,
 				3FA1CB2B2ABEF9C400C20540 /* ViewModels */,
 				3FA1CB272ABECDC500C20540 /* Views */,
@@ -172,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				3FA1CB252ABEC06E00C20540 /* WalletGuardButtonView.swift */,
+				3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -354,13 +379,16 @@
 				3FA1CB2D2ABEFA0900C20540 /* UserViewModel.swift in Sources */,
 				3FA1CB2A2ABEE73200C20540 /* RegisterView.swift in Sources */,
 				3FA1CAEA2AA2EA2900C20540 /* WalletGuardApp.swift in Sources */,
+				3F6F6DDA2AC2B0F400C95ACB /* ColorExtension.swift in Sources */,
 				3FA1CB342AC0172E00C20540 /* Category.swift in Sources */,
 				3FA1CB3E2AC03D1100C20540 /* AddExpensesView.swift in Sources */,
 				3FA1CB262ABEC06E00C20540 /* WalletGuardButtonView.swift in Sources */,
 				3FA1CB382AC0181200C20540 /* ExpensesView.swift in Sources */,
 				3FA1CB3A2AC0184A00C20540 /* CategoriesView.swift in Sources */,
 				3FA1CB362AC017EB00C20540 /* DashboardView.swift in Sources */,
+				3F6F6DDC2AC2B81000C95ACB /* PrimaryButton.swift in Sources */,
 				3FA1CB1A2AA2EEBE00C20540 /* UserAuthModel.swift in Sources */,
+				3F6F6DDF2AC2DFDC00C95ACB /* ApplicationDataManger.swift in Sources */,
 				3FA1CB302ABF026700C20540 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

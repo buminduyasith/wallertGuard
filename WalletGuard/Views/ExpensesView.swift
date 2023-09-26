@@ -9,11 +9,24 @@ import SwiftUI
 
 struct ExpensesView: View {
     @State private var isAddExpenseOpen: Bool = false
+    @State private var title: String = ""
+    init() {
+           //Use this if NavigationBarTitle is with Large Font
+           UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+           //Use this if NavigationBarTitle is with displayMode = .inline
+           UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+       }
+
     var body: some View {
         NavigationStack{
-            List{
+            VStack{
                 
-            }.navigationTitle("Expenses")
+                
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.background)
+            .navigationTitle("Expenses")
             
                 .toolbar{
                     ToolbarItem(placement: .navigationBarTrailing){

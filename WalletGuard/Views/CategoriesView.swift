@@ -9,6 +9,14 @@ import SwiftUI
 
 struct CategoriesView: View {
     @State private var addExpense: Bool = false
+    init() {
+           //Use this if NavigationBarTitle is with Large Font
+           UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+           //Use this if NavigationBarTitle is with displayMode = .inline
+           UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+       }
+
     var body: some View {
         NavigationStack{
             List{
