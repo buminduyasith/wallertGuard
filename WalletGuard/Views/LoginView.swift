@@ -10,40 +10,86 @@ import GoogleSignIn
 
 struct LoginView: View {
     
-    @State var useerName : String = ""
+    @State var email : String = ""
+    @State var password : String = ""
+    @State var path = NavigationPath()
+    @ObservedObject var vm = UserViewModel()
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            Text("Create Your \nAccount")
-                .fontWeight(Font.Weight.bold)
-                .font(.system(size: 48))
-                .foregroundColor(.white)
-            
-            TextField("Username", text: $useerName)
-                .padding()
-                .background(Color.white.opacity(0.9))
-                .cornerRadius(10.0)
-                .padding(.bottom, 20)
-            
-            SecureField("Password", text: $useerName)
-                .padding()
-                .background(Color.white.opacity(0.9))
-                .cornerRadius(10.0)
-                .padding(.bottom, 20)
-            
-            WalletGuardButtonView(title: $useerName, btnSubmit: signin)
-            
-            
-            
-        }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black) // Set the background color to black
         
+        if vm.isloggedIn{
+            
+            DashboardView()
+        }
+        else{
+            content
+        }
     }
-    func signin(){
-        useerName = "bumindu"
-        print("sign in")
+    
+    
+    var content: some View{
+        
+        NavigationStack(path: $path){
+            VStack(alignment: .leading) {
+                
+                Text("Create Your \nAccount")
+                    .fontWeight(Font.Weight.bold)
+                    .font(.system(size: 48))
+                    .foregroundColor(.white)
+                
+                TextField("Username", text: $email)
+                    .padding()
+                    .background(Color.white.opacity(0.9))
+                    .cornerRadius(10.0)
+                    .padding(.bottom, 20)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                
+                SecureField("Password", text: $password)
+                    .padding()
+                    .background(Color.white.opacity(0.9))
+                    .cornerRadius(10.0)
+                    .padding(.bottom, 20)
+                
+              
+                Button(action: {
+                    //path.append("dashboard")
+
+                    Task{
+                        await vm.Login(user:User(id: "", firstName: "", lastName: "", email: "bumi123@gmail.com", password: "123qw@"))
+                    }
+                }, label: {
+                    PrimaryButton(btnName: "Login")
+                })
+                
+                
+                
+                Button(action: {
+                    path.append("register")
+                })
+                {
+                    Text("Don't have an account? Register here.")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+                
+                .padding(.top, 40)
+                Spacer()
+                
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black)
+            .navigationDestination(for: String.self){ view in
+                if view == "register"{
+                    RegisterView()
+                }
+                else if view == "dashboard" {
+                    DashboardView()
+                }
+            }
+            // Set the background color to black
+        }
+        
     }
 }
 
