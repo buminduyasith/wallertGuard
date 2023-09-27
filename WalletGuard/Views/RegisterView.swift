@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct RegisterView: View {
     @State var email: String = ""
@@ -13,9 +14,20 @@ struct RegisterView: View {
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State private var didFinish = false
+    @State private var isloggedIn = false
     
     @ObservedObject var vm = UserViewModel()
     var body: some View {
+        if isloggedIn == true{
+            DashboardView()
+        }
+        else{
+            content
+        }
+        
+    }
+    
+    var content: some View{
         VStack(alignment: .leading){
             Text("Create Your \nAccount")
                 .fontWeight(Font.Weight.bold)
@@ -50,18 +62,12 @@ struct RegisterView: View {
             
             Button(action: {
                 didFinish = true
-//                vm.CreateNewAccount(user: User( id: "", firstName: firstName, lastName: lastName, email: email, password: password))
+                vm.CreateNewAccount(user: User( id: "", firstName: firstName, lastName: lastName, email: email, password: password))
+                isloggedIn = true
             }, label: {
-                Text("Sign Up")
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                   // .padding(.top,20)
-                   // .padding(.leading, 150)
-                    .cornerRadius(10.0)
+                PrimaryButton(btnName: "Sign up")
             })
-            .frame(width: 150, height: 60)
-            .background(.blue)
-            .cornerRadius(10.5)
+            
             Spacer()
            
         
@@ -69,8 +75,18 @@ struct RegisterView: View {
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black) // Set the background color to black
+        .onAppear{
+            Auth.auth().addStateDidChangeListener{auth, user in
+                
+                if user != nil{
+                    isloggedIn = true
+                }
+                
+            }
+        }
     }
 }
+
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {

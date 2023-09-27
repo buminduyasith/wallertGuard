@@ -16,7 +16,16 @@ struct WalletGuardApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            RegisterView()
+            
+            if Auth.auth().currentUser != nil {
+              // User is signed in.
+                DashboardView()
+              // ...
+            } else {
+                LoginView()
+              // ...
+            }
+
         }
     }
 }

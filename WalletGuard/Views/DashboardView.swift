@@ -6,11 +6,38 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct DashboardView: View {
     @State private var currentTab: String = "expenses"
+    @State var isLoggedIn = true
+    @ObservedObject var vm = UserViewModel()
+    
+    init(){
+        
+      
+        
+    }
     var body: some View {
+        
+        if isLoggedIn == true{
+            content
+        }
+        else{
+            
+            LoginView()
+        }
+    }
+    
+    var content: some View {
         TabView(selection: $currentTab){
+            
+            Home()
+                .tag("Home")
+                .tabItem{
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
             ExpensesView()
                 .tag("Expenses")
                 .tabItem{
@@ -24,6 +51,15 @@ struct DashboardView: View {
                     Image(systemName: "list.clipboard.fill")
                     Text("Categories")
                 }
+        }
+        .onAppear{
+            Auth.auth().addStateDidChangeListener{auth, user in
+                
+                if user == nil{
+                    isLoggedIn = false
+                }
+                
+            }
         }
     }
 }
