@@ -16,6 +16,8 @@
 		3F6F6DE92AC53CD100C95ACB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DE82AC53CD100C95ACB /* HomeViewModel.swift */; };
 		3F6F6DEC2AC54EB200C95ACB /* StringHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DEB2AC54EB200C95ACB /* StringHepler.swift */; };
 		3F6F6DEE2AC555F200C95ACB /* AddIncomeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DED2AC555F200C95ACB /* AddIncomeSheetView.swift */; };
+		3F6F6DF02AC5689E00C95ACB /* TransactionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DEF2AC5689E00C95ACB /* TransactionComponent.swift */; };
+		3F6F6DF22AC5695500C95ACB /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DF12AC5695500C95ACB /* BudgetViewModel.swift */; };
 		3FA1CAEA2AA2EA2900C20540 /* WalletGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAE92AA2EA2900C20540 /* WalletGuardApp.swift */; };
 		3FA1CAEC2AA2EA2900C20540 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAEB2AA2EA2900C20540 /* LoginView.swift */; };
 		3FA1CAEE2AA2EA2A00C20540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA1CAED2AA2EA2A00C20540 /* Assets.xcassets */; };
@@ -38,7 +40,7 @@
 		3FA1CB342AC0172E00C20540 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB332AC0172E00C20540 /* Category.swift */; };
 		3FA1CB362AC017EB00C20540 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB352AC017EB00C20540 /* DashboardView.swift */; };
 		3FA1CB382AC0181200C20540 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB372AC0181200C20540 /* ExpensesView.swift */; };
-		3FA1CB3A2AC0184A00C20540 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB392AC0184A00C20540 /* CategoriesView.swift */; };
+		3FA1CB3A2AC0184A00C20540 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB392AC0184A00C20540 /* BudgetView.swift */; };
 		3FA1CB3E2AC03D1100C20540 /* AddExpenseSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB3D2AC03D1000C20540 /* AddExpenseSheetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		3F6F6DE82AC53CD100C95ACB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		3F6F6DEB2AC54EB200C95ACB /* StringHepler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHepler.swift; sourceTree = "<group>"; };
 		3F6F6DED2AC555F200C95ACB /* AddIncomeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeSheetView.swift; sourceTree = "<group>"; };
+		3F6F6DEF2AC5689E00C95ACB /* TransactionComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionComponent.swift; sourceTree = "<group>"; };
+		3F6F6DF12AC5695500C95ACB /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
 		3FA1CAE62AA2EA2900C20540 /* WalletGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA1CAE92AA2EA2900C20540 /* WalletGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuardApp.swift; sourceTree = "<group>"; };
 		3FA1CAEB2AA2EA2900C20540 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -90,7 +94,7 @@
 		3FA1CB332AC0172E00C20540 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3FA1CB352AC017EB00C20540 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		3FA1CB372AC0181200C20540 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
-		3FA1CB392AC0184A00C20540 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		3FA1CB392AC0184A00C20540 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
 		3FA1CB3D2AC03D1000C20540 /* AddExpenseSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseSheetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +240,7 @@
 			children = (
 				3FA1CB252ABEC06E00C20540 /* WalletGuardButtonView.swift */,
 				3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */,
+				3F6F6DEF2AC5689E00C95ACB /* TransactionComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -247,8 +252,8 @@
 				3FA1CB292ABEE73200C20540 /* RegisterView.swift */,
 				3FA1CB352AC017EB00C20540 /* DashboardView.swift */,
 				3FA1CB372AC0181200C20540 /* ExpensesView.swift */,
-				3FA1CB392AC0184A00C20540 /* CategoriesView.swift */,
 				3FA1CB3D2AC03D1000C20540 /* AddExpenseSheetView.swift */,
+				3FA1CB392AC0184A00C20540 /* BudgetView.swift */,
 				3F6F6DE02AC3140000C95ACB /* Home.swift */,
 				3F6F6DED2AC555F200C95ACB /* AddIncomeSheetView.swift */,
 			);
@@ -260,6 +265,7 @@
 			children = (
 				3FA1CB2C2ABEFA0900C20540 /* UserViewModel.swift */,
 				3F6F6DE82AC53CD100C95ACB /* HomeViewModel.swift */,
+				3F6F6DF12AC5695500C95ACB /* BudgetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -424,14 +430,16 @@
 				3FA1CAEA2AA2EA2900C20540 /* WalletGuardApp.swift in Sources */,
 				3F6F6DDA2AC2B0F400C95ACB /* ColorExtension.swift in Sources */,
 				3F6F6DEE2AC555F200C95ACB /* AddIncomeSheetView.swift in Sources */,
+				3F6F6DF02AC5689E00C95ACB /* TransactionComponent.swift in Sources */,
 				3F6F6DE12AC3140000C95ACB /* Home.swift in Sources */,
 				3FA1CB342AC0172E00C20540 /* Category.swift in Sources */,
 				3F6F6DE42AC53BAD00C95ACB /* TransactionDto.swift in Sources */,
 				3FA1CB3E2AC03D1100C20540 /* AddExpenseSheetView.swift in Sources */,
 				3FA1CB262ABEC06E00C20540 /* WalletGuardButtonView.swift in Sources */,
 				3F6F6DEC2AC54EB200C95ACB /* StringHepler.swift in Sources */,
+				3F6F6DF22AC5695500C95ACB /* BudgetViewModel.swift in Sources */,
 				3FA1CB382AC0181200C20540 /* ExpensesView.swift in Sources */,
-				3FA1CB3A2AC0184A00C20540 /* CategoriesView.swift in Sources */,
+				3FA1CB3A2AC0184A00C20540 /* BudgetView.swift in Sources */,
 				3F6F6DE72AC53C3200C95ACB /* TransactionType.swift in Sources */,
 				3FA1CB362AC017EB00C20540 /* DashboardView.swift in Sources */,
 				3F6F6DDC2AC2B81000C95ACB /* PrimaryButton.swift in Sources */,

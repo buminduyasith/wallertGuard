@@ -45,7 +45,7 @@ struct DashboardView: View {
                     Text("Expenses")
                 }
             
-            CategoriesView()
+            BudgetView()
                 .tag("Categories")
                 .tabItem{
                     Image(systemName: "list.clipboard.fill")
