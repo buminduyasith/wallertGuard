@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import Charts
 
 struct BudgetView: View {
     @State private var addExpense: Bool = false
     @State private var selection = 0
-    
     @ObservedObject var budgetVm = BudgetViewModel()
     init() {
            //Use this if NavigationBarTitle is with Large Font
@@ -18,7 +18,10 @@ struct BudgetView: View {
 
            //Use this if NavigationBarTitle is with displayMode = .inline
            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+
        }
+    
+    
 
     var body: some View {
         NavigationStack{
@@ -34,6 +37,7 @@ struct BudgetView: View {
                 
                 
                 VStack(alignment: .leading){
+                    
                     
                     HStack{
                         
