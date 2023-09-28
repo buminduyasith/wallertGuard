@@ -1,13 +1,13 @@
 //
-//  AddExpensesView.swift
+//  AddIncomeSheetView.swift
 //  WalletGuard
 //
-//  Created by bumindu yasith on 2023-09-24.
+//  Created by bumindu yasith on 2023-09-28.
 //
 
 import SwiftUI
 
-struct AddExpensesView: View {
+struct AddIncomeSheetView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var title: String = ""
     @State private var amount: Double = 0
@@ -32,9 +32,10 @@ struct AddExpensesView: View {
                 Section("Title"){
                     TextField("title of the expense", text: $title)
                         .foregroundColor(.black)
+                        
                 }
                 
-                Section("Amount spent"){
+                Section("Amount"){
                     HStack(){
                         
                         TextField("0.0", value: $amount, format: .currency(code: "LK"))
@@ -55,36 +56,13 @@ struct AddExpensesView: View {
                         .datePickerStyle(.wheel)
                         .labelsHidden()
                 }
-                
-                Section{
-                   
-                    HStack{
-                        
-                        Text("Category")
-                            .foregroundColor(.black)
-                        
-                        Spacer()
-                        
-                        Picker("", selection: $category){
-                            ForEach(categories) { item in
-                                Text(item.name)
-                                    .foregroundColor(Color.red)
-                            }
-                        }
-                        .pickerStyle(.menu)
-                    }
-                    
-                }
-                
-                
-              
-                
+
             }
-            .background(Color.background)
+            .background(.black)
             .scrollContentBackground(.hidden)
             .foregroundColor(.white)
             .font(.system(size: 16.0))
-            .navigationTitle("Add Expense")
+            .navigationTitle("Add Income")
             .toolbar{
                 ToolbarItem(placement: .navigationBarLeading){
                     Button("Cancel"){
@@ -104,8 +82,8 @@ struct AddExpensesView: View {
     }
 }
 
-struct AddExpensesView_Previews: PreviewProvider {
+struct AddIncomeSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpensesView()
+        AddIncomeSheetView()
     }
 }

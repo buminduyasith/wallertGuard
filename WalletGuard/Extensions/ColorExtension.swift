@@ -12,4 +12,5 @@ extension Color{
     
     static let background = Color("Background")
     static let btnPrimary = Color("BtnPrimary")
+    static let CardView = Color("CardView")
 }

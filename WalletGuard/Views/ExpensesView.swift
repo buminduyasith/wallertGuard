@@ -42,7 +42,7 @@ struct ExpensesView: View {
                 }
         }
         .sheet(isPresented: $isAddExpenseOpen){
-            AddExpensesView()
+            AddExpenseSheetView()
         }
     }
 }
