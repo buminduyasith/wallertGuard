@@ -38,18 +38,18 @@ struct DashboardView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-            ExpensesView()
-                .tag("Expenses")
+            BudgetView()
+                .tag("Budget")
                 .tabItem{
                     Image(systemName: "creditcard.fill")
-                    Text("Expenses")
+                    Text("Budget")
                 }
             
-            CategoriesView()
-                .tag("Categories")
+            InsightsView()
+                .tag("Insights")
                 .tabItem{
-                    Image(systemName: "list.clipboard.fill")
-                    Text("Categories")
+                    Image(systemName: "book.fill")
+                    Text("Budget")
                 }
         }
         .onAppear{

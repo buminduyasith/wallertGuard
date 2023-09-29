@@ -31,10 +31,18 @@ struct LoginView: View {
         NavigationStack(path: $path){
             VStack(alignment: .leading) {
                 
-                Text("Create Your \nAccount")
-                    .fontWeight(Font.Weight.bold)
-                    .font(.system(size: 48))
-                    .foregroundColor(.white)
+                HStack(spacing: 0){
+                    Text("Sign In To Your Account")
+                        .fontWeight(Font.Weight.bold)
+                        .font(.system(size: 30))
+                        .foregroundColor(.white)
+                    
+                    Spacer()
+                    
+                    Image("login")
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                }
                 
                 TextField("Username", text: $email)
                     .padding()

@@ -29,10 +29,19 @@ struct RegisterView: View {
     
     var content: some View{
         VStack(alignment: .leading){
-            Text("Create Your \nAccount")
-                .fontWeight(Font.Weight.bold)
-                .font(.system(size: 48))
-                .foregroundColor(.white)
+            
+            HStack(spacing: 0){
+                Text("Create Your Account")
+                    .fontWeight(Font.Weight.bold)
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
+                
+                Spacer()
+                
+                Image("register")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+            }
             
             HStack{
                 TextField("FirstName", text: $firstName)
