@@ -173,7 +173,8 @@ struct BudgetView: View {
                 }
         }
         .sheet(isPresented: $addExpense){
-            Label("No expenses", systemImage: "tray.fill")
+            AddBudgetView()
+//            Label("No expenses", systemImage: "tray.fill")
         }
     }
 }
