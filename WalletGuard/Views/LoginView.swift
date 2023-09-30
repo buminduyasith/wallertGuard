@@ -28,76 +28,73 @@ struct LoginView: View {
     
     var content: some View{
         
-        NavigationStack(path: $path){
-            VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
+            
+            HStack(spacing: 0){
+                Text("Sign In To Your Account")
+                    .fontWeight(Font.Weight.bold)
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
                 
-                HStack(spacing: 0){
-                    Text("Sign In To Your Account")
-                        .fontWeight(Font.Weight.bold)
-                        .font(.system(size: 30))
-                        .foregroundColor(.white)
-                    
-                    Spacer()
-                    
-                    Image("login")
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                }
-                
-                TextField("Username", text: $email)
-                    .padding()
-                    .background(Color.white.opacity(0.9))
-                    .cornerRadius(10.0)
-                    .padding(.bottom, 20)
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
-                
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(Color.white.opacity(0.9))
-                    .cornerRadius(10.0)
-                    .padding(.bottom, 20)
-                
-              
-                Button(action: {
-                    //path.append("dashboard")
-
-                    Task{
-                        await vm.Login(user:User(id: "", firstName: "", lastName: "", email: "bumi123@gmail.com", password: "123qw@"))
-                    }
-                }, label: {
-                    PrimaryButton(btnName: "Login")
-                })
-                
-                
-                
-                Button(action: {
-                    path.append("register")
-                })
-                {
-                    Text("Don't have an account? Register here.")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                }
-                
-                .padding(.top, 40)
                 Spacer()
                 
+                Image("login")
+                    .resizable()
+                    .frame(width: 200, height: 200)
             }
-            .padding()
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
-            .navigationDestination(for: String.self){ view in
-                if view == "register"{
-                    RegisterView()
+            
+            TextField("Username", text: $email)
+                .padding()
+                .background(Color.white.opacity(0.9))
+                .cornerRadius(10.0)
+                .padding(.bottom, 20)
+                .autocapitalization(.none)
+                .keyboardType(.emailAddress)
+            
+            SecureField("Password", text: $password)
+                .padding()
+                .background(Color.white.opacity(0.9))
+                .cornerRadius(10.0)
+                .padding(.bottom, 20)
+            
+          
+            Button(action: {
+                //path.append("dashboard")
+
+                Task{
+                    await vm.Login(user:ApplicationUser(id: "", firstName: "", lastName: "", email: email, password: password))
                 }
-                else if view == "dashboard" {
-                    DashboardView()
-                }
+            }, label: {
+                PrimaryButton(btnName: "Login")
+            })
+            
+            
+            
+            Button(action: {
+                path.append("register")
+            })
+            {
+                Text("Don't have an account? Register here.")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
-            // Set the background color to black
+            
+            .padding(.top, 40)
+            Spacer()
+            
         }
-        
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black)
+        .navigationDestination(for: String.self){ view in
+            if view == "register"{
+                RegisterView()
+            }
+            else if view == "dashboard" {
+                DashboardView()
+            }
+        }
+        // Set the background color to black
     }
 }
 

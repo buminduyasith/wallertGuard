@@ -23,7 +23,7 @@
 		3F6F6DF82AC5BE7900C95ACB /* AddBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DF72AC5BE7900C95ACB /* AddBudgetView.swift */; };
 		3FA1CAEA2AA2EA2900C20540 /* WalletGuardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAE92AA2EA2900C20540 /* WalletGuardApp.swift */; };
 		3FA1CAEC2AA2EA2900C20540 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAEB2AA2EA2900C20540 /* LoginView.swift */; };
-				3FA1CAEE2AA2EA2A00C20540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA1CAED2AA2EA2A00C20540 /* Assets.xcassets */; };
+		3FA1CAEE2AA2EA2A00C20540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA1CAED2AA2EA2A00C20540 /* Assets.xcassets */; };
 		3FA1CAF12AA2EA2A00C20540 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FA1CAF02AA2EA2A00C20540 /* Preview Assets.xcassets */; };
 		3FA1CAFB2AA2EA2A00C20540 /* WalletGuardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CAFA2AA2EA2A00C20540 /* WalletGuardTests.swift */; };
 		3FA1CB052AA2EA2A00C20540 /* WalletGuardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB042AA2EA2A00C20540 /* WalletGuardUITests.swift */; };
@@ -38,7 +38,7 @@
 		3FA1CB262ABEC06E00C20540 /* WalletGuardButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB252ABEC06E00C20540 /* WalletGuardButtonView.swift */; };
 		3FA1CB2A2ABEE73200C20540 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB292ABEE73200C20540 /* RegisterView.swift */; };
 		3FA1CB2D2ABEFA0900C20540 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB2C2ABEFA0900C20540 /* UserViewModel.swift */; };
-		3FA1CB302ABF026700C20540 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB2F2ABF026700C20540 /* User.swift */; };
+		3FA1CB302ABF026700C20540 /* ApplicationUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB2F2ABF026700C20540 /* ApplicationUser.swift */; };
 		3FA1CB322AC0164E00C20540 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB312AC0164E00C20540 /* Expense.swift */; };
 		3FA1CB342AC0172E00C20540 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB332AC0172E00C20540 /* Category.swift */; };
 		3FA1CB362AC017EB00C20540 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA1CB352AC017EB00C20540 /* DashboardView.swift */; };
@@ -82,7 +82,7 @@
 		3FA1CAE62AA2EA2900C20540 /* WalletGuard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WalletGuard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA1CAE92AA2EA2900C20540 /* WalletGuardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuardApp.swift; sourceTree = "<group>"; };
 		3FA1CAEB2AA2EA2900C20540 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-			3FA1CAED2AA2EA2A00C20540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3FA1CAED2AA2EA2A00C20540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FA1CAF02AA2EA2A00C20540 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FA1CAF62AA2EA2A00C20540 /* WalletGuardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalletGuardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FA1CAFA2AA2EA2A00C20540 /* WalletGuardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuardTests.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		3FA1CB252ABEC06E00C20540 /* WalletGuardButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuardButtonView.swift; sourceTree = "<group>"; };
 		3FA1CB292ABEE73200C20540 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		3FA1CB2C2ABEFA0900C20540 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		3FA1CB2F2ABF026700C20540 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3FA1CB2F2ABF026700C20540 /* ApplicationUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationUser.swift; sourceTree = "<group>"; };
 		3FA1CB312AC0164E00C20540 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
 		3FA1CB332AC0172E00C20540 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3FA1CB352AC017EB00C20540 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		3FA1CB2E2ABF022A00C20540 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3FA1CB2F2ABF026700C20540 /* User.swift */,
+				3FA1CB2F2ABF026700C20540 /* ApplicationUser.swift */,
 				3FA1CB312AC0164E00C20540 /* Expense.swift */,
 				3FA1CB332AC0172E00C20540 /* Category.swift */,
 			);
@@ -457,7 +457,7 @@
 				3FA1CB1A2AA2EEBE00C20540 /* UserAuthModel.swift in Sources */,
 				3F6F6DDF2AC2DFDC00C95ACB /* ApplicationDataManger.swift in Sources */,
 				3F6F6DF42AC58B1D00C95ACB /* CategeoryExpensesDto.swift in Sources */,
-				3FA1CB302ABF026700C20540 /* User.swift in Sources */,
+				3FA1CB302ABF026700C20540 /* ApplicationUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

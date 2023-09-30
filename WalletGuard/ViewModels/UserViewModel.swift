@@ -18,7 +18,7 @@ class UserViewModel: ObservableObject {
     @Published var isloggedIn = false
     @Published var path = NavigationPath()
     
-    func CreateNewAccount(user : User){
+    func CreateNewAccount(user : ApplicationUser){
         let db = Firestore.firestore()
         Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
             if error != nil {
@@ -51,12 +51,14 @@ class UserViewModel: ObservableObject {
     }
     
     @MainActor
-    func Login(user: User) async{
+    func Login(user: ApplicationUser) async{
         
         do{
+            print(user.email)
+            print(user.password)
             let authResult = try await Auth.auth().signIn(withEmail: user.email, password: user.password)
             isloggedIn = true;
-            path.append("dashboard")
+            //path.append("dashboard")
             
         }
         catch{
@@ -66,7 +68,7 @@ class UserViewModel: ObservableObject {
     }
     
     
-    func GetUserInfo(completion: @escaping (User?) -> Void) {
+    func GetUserInfo(completion: @escaping (ApplicationUser?) -> Void) {
         if let userId = Auth.auth().currentUser?.uid {
             let db = Firestore.firestore()
             let docRef = db.collection("users").document(userId)
@@ -85,7 +87,7 @@ class UserViewModel: ObservableObject {
                 let email = documentData["email"] as? String ?? ""
                 let password = documentData["password"] as? String ?? ""
 
-                let user = User(id: userId, firstName: firstName, lastName: lastName, email: email, password: password)
+                let user = ApplicationUser(id: userId, firstName: firstName, lastName: lastName, email: email, password: password)
                 completion(user)
             }
         } else {
@@ -93,7 +95,7 @@ class UserViewModel: ObservableObject {
         }
     }
     
-    func getUser() async throws -> User {
+    func getUser() async throws -> ApplicationUser {
         
         let db = Firestore.firestore()
       
@@ -114,7 +116,7 @@ class UserViewModel: ObservableObject {
         let email = documentData["email"] as? String ?? ""
         let password = documentData["password"] as? String ?? ""
         
-        return User(id: userId, firstName: firstName, lastName: lastName, email: "", password: "")
+        return ApplicationUser(id: userId, firstName: firstName, lastName: lastName, email: "", password: "")
         
     
         

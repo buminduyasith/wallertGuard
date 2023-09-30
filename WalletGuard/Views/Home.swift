@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct Home: View {
     @State var name = ""
-    @State var user : User? = nil
+    @State var user : ApplicationUser? = nil
     @State private var isAddExpenseSheetOpen: Bool = false
     @State private var isAddIncomeSheetOpen: Bool = false
     @ObservedObject var homeVm = HomeViewModel()

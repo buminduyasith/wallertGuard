@@ -71,7 +71,7 @@ struct RegisterView: View {
             
             Button(action: {
                 didFinish = true
-                vm.CreateNewAccount(user: User( id: "", firstName: firstName, lastName: lastName, email: email, password: password))
+                vm.CreateNewAccount(user: ApplicationUser( id: "", firstName: firstName, lastName: lastName, email: email, password: password))
                 isloggedIn = true
             }, label: {
                 PrimaryButton(btnName: "Sign up")

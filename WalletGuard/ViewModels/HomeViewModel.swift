@@ -15,7 +15,7 @@ import SwiftUI
 class HomeViewModel: ObservableObject {
     
     @Published var transactions : [TransactionDto] = []
-    
+
     
     func getTransactions(){
         
