@@ -81,7 +81,7 @@ struct BudgetView: View {
                         
                        
                         
-                        Text("500")
+                        Text(String(format: "%.2f", budgetVm.totalExpenses))
                             .font(.title3)
                             .foregroundColor(.white)
                             .padding(.trailing)
@@ -102,7 +102,7 @@ struct BudgetView: View {
                             .foregroundColor(.green)
                             .padding(.leading, 10)
                         
-                        Text("500")
+                        Text(String(format: "%.2f", budgetVm.totalIncome))
                             .font(.title3)
                             .foregroundColor(.white)
                             .padding(.trailing)
@@ -151,7 +151,9 @@ struct BudgetView: View {
                 
             }
             .onAppear{
-                budgetVm.getTransactions()
+                Task{
+                    await budgetVm.getTransactions()
+                }
             }
             .frame(maxWidth: .infinity)
             .background(.black)

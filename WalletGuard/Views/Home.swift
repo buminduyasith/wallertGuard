@@ -152,12 +152,6 @@ struct Home: View {
                 
             }
             .padding(.top, 20)
-            .onAppear{
-                Task{
-                    try? user =  await vm.getUser()
-                    name = user?.firstName ?? ""
-                }
-            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black)
             .navigationTitle("Hi \(name)")
@@ -183,6 +177,8 @@ struct Home: View {
         .onAppear{
             
             Task{
+                try? user =  await vm.getUser()
+                name = user?.firstName ?? ""
                 await homeVm.getTransactions()
             }
         }
