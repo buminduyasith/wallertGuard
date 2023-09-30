@@ -15,6 +15,7 @@ import FirebaseFirestore
 import Combine
 import SwiftUI
 
+@MainActor
 class BudgetViewModel: ObservableObject {
     
     @Published var totalIncome : Double = 0.0
