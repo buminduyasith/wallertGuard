@@ -87,5 +87,30 @@ class ApplicationDataManger {
         return incomes
         
     }
+    
+    
+    func getBudgetDataByUserId() async throws -> Budget {
+        
+        let db = Firestore.firestore()
+      
+        guard let userId = Auth.auth().currentUser?.uid else {
+            throw AuthErrorCode(.appNotAuthorized)
+        }
+        
+        let snapshort =  try await db.collection("budget").document(userId).getDocument()
+        
+        guard let documentData = snapshort.data() else {
+            throw URLError(.badServerResponse)
+        }
+        
+        let title = documentData["title"] as? String ?? ""
+        let amount  = documentData["amount"] as? Double ?? 0.0
+        let year  = documentData["year"] as? Int ?? 2023
+        let month  = documentData["month"] as? Int ?? 1
+        
+        
+        return Budget(title: title, amount: amount, year: year, month: month)
+        
+    }
 
 }

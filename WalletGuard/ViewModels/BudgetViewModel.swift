@@ -22,6 +22,7 @@ class BudgetViewModel: ObservableObject {
     @Published var totalExpenses : Double = 0.0
     @Published var isLoading : Bool = false
     @Published var transactions : [TransactionDto] = []
+    @Published var budgetInfo : Budget = .init(title: "", amount: 0, year: 2023, month: 1)
     
     func getTransactions() async{
         
@@ -62,5 +63,30 @@ class BudgetViewModel: ObservableObject {
         isLoading = false
     }
     
+    func createBudget(budget : Budget) async throws{
+        let db = Firestore.firestore()
+        let currentUser = try AuthenticationManger.shared.getAuthenticatedUser()
+        print(budget)
+        try await db.collection("budget").document(currentUser.id).setData([
+            "title": budget.title,
+            "amount": budget.amount,
+            "year": budget.year,
+            "month": budget.month,
+            "userId": currentUser.id,
+        ])
+        
+        budgetInfo = budget
+    }
+    
+    func getBudget() async {
+        
+        guard let budget = try? await ApplicationDataManger.shared.getBudgetDataByUserId() else{
+            print("something happend wrong - budget")
+            return
+        }
+        
+        budgetInfo = budget
+        
+    }
     
 }

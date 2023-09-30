@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F221FED2AC7F65F00438503 /* AuthenticationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F221FEC2AC7F65F00438503 /* AuthenticationManger.swift */; };
 		3F221FEF2AC8223900438503 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F221FEE2AC8223900438503 /* Income.swift */; };
+		3F221FF12AC87A4300438503 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F221FF02AC87A4300438503 /* Budget.swift */; };
 		3F6F6DDA2AC2B0F400C95ACB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */; };
 		3F6F6DDC2AC2B81000C95ACB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */; };
 		3F6F6DDF2AC2DFDC00C95ACB /* ApplicationDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		3F221FEC2AC7F65F00438503 /* AuthenticationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManger.swift; sourceTree = "<group>"; };
 		3F221FEE2AC8223900438503 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		3F221FF02AC87A4300438503 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDataManger.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				3FA1CB312AC0164E00C20540 /* Expense.swift */,
 				3FA1CB332AC0172E00C20540 /* Category.swift */,
 				3F221FEE2AC8223900438503 /* Income.swift */,
+				3F221FF02AC87A4300438503 /* Budget.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			files = (
 				3FA1CB322AC0164E00C20540 /* Expense.swift in Sources */,
 				3FA1CAEC2AA2EA2900C20540 /* LoginView.swift in Sources */,
+				3F221FF12AC87A4300438503 /* Budget.swift in Sources */,
 				3F6F6DF82AC5BE7900C95ACB /* AddBudgetView.swift in Sources */,
 				3FA1CB2D2ABEFA0900C20540 /* UserViewModel.swift in Sources */,
 				3F6F6DE92AC53CD100C95ACB /* HomeViewModel.swift in Sources */,
