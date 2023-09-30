@@ -34,12 +34,19 @@ class HomeViewModel: ObservableObject {
             transactions.append(TransactionDto(title: expense.subTitle, type: .expense, price: expense.amount, date: expense.date))
         }
         
+        totalExpenses = expenses.reduce(0.0) { (result, expense) in
+            return result + expense.amount
+        }
+        
         
         guard var incomes = try? await ApplicationDataManger.shared.getAllIncomeByUserId() else{
             print("something happend wrong")
             return
         }
         
+        totalIncome = incomes.reduce(0.0){ (result, income) in
+            return result + income.amount
+        }
        
         for income in incomes{
             
