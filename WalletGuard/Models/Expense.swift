@@ -8,17 +8,18 @@
 import Foundation
 
 
-public struct Expense {
+struct Expense: Identifiable {
     
-    var id : UUID
+    let id : UUID = UUID()
     var subTitle : String
     var amount: Double
     var date: Date
+    var category: String
     
-    init(subTitle: String, amount: Double, date: Date) {
-        self.id = UUID()
+    init(subTitle: String, amount: Double, date: Date, category: String) {
         self.subTitle = subTitle
         self.amount = amount
         self.date = date
+        self.category = category
     }
 }

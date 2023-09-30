@@ -12,13 +12,12 @@ struct AddIncomeSheetView: View {
     @State private var title: String = ""
     @State private var amount: Double = 0
     @State private var date: Date = .init()
-    @State private var category: Category?
-    let categories : [Category]
   
+    @ObservedObject private var homeVm  = HomeViewModel()
+
     
     init() {
         
-        categories = ApplicationDataManger.shared.getAllCategories()
            //Use this if NavigationBarTitle is with Large Font
            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
@@ -72,7 +71,20 @@ struct AddIncomeSheetView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Add"){
-                        dismiss()
+                        
+                        Task{
+                            do{
+                                try await homeVm.AddIncome(income: Income(title: title, amount: amount, date: date))
+                                
+                                dismiss()
+                                
+                            }catch{
+                                
+                                print(error)
+                                dismiss()
+                                
+                            }
+                        }
                     }
                     .tint(Color.btnPrimary)
                 }

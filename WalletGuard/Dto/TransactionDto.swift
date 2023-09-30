@@ -10,7 +10,7 @@ import Foundation
 
 struct TransactionDto : Identifiable{
     
-    var id: String
+    let id: UUID = UUID()
     var title: String
     var type: TransactionType
     var price: Double

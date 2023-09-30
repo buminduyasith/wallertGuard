@@ -50,7 +50,7 @@ struct Home: View {
                                     .foregroundColor(.green)
                                 
                                 HStack(spacing: 3){
-                                    Text("1000.23")
+                                    Text(String(format: "%.2f", homeVm.totalIncome))
                                         .foregroundColor(.white)
                                         .bold()
                                     
@@ -97,7 +97,7 @@ struct Home: View {
                                     .foregroundColor(.red)
                                 
                                 HStack(spacing: 3){
-                                    Text("1000.23")
+                                    Text(String(format: "%.2f", homeVm.totalExpenses))
                                         .foregroundColor(.white)
                                         .bold()
                                     
@@ -182,7 +182,9 @@ struct Home: View {
         }
         .onAppear{
             
-            homeVm.getTransactions()
+            Task{
+                await homeVm.getTransactions()
+            }
         }
         .sheet(isPresented: $isAddIncomeSheetOpen){
             AddIncomeSheetView()

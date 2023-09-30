@@ -112,15 +112,7 @@ class UserViewModel: ObservableObject {
         let firstName = documentData["firstName"] as? String ?? ""
         let lastName = documentData["lastName"] as? String ?? ""
         
-        // Assuming you have access to the email and password as well
-        let email = documentData["email"] as? String ?? ""
-        let password = documentData["password"] as? String ?? ""
-        
         return ApplicationUser(id: userId, firstName: firstName, lastName: lastName, email: "", password: "")
-        
-    
-        
-        
     }
     
     

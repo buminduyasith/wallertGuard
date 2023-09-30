@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F221FED2AC7F65F00438503 /* AuthenticationManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F221FEC2AC7F65F00438503 /* AuthenticationManger.swift */; };
+		3F221FEF2AC8223900438503 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F221FEE2AC8223900438503 /* Income.swift */; };
 		3F6F6DDA2AC2B0F400C95ACB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */; };
 		3F6F6DDC2AC2B81000C95ACB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */; };
 		3F6F6DDF2AC2DFDC00C95ACB /* ApplicationDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F221FEC2AC7F65F00438503 /* AuthenticationManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManger.swift; sourceTree = "<group>"; };
+		3F221FEE2AC8223900438503 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		3F6F6DD92AC2B0F400C95ACB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		3F6F6DDB2AC2B81000C95ACB /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDataManger.swift; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				3F6F6DDE2AC2DFDC00C95ACB /* ApplicationDataManger.swift */,
+				3F221FEC2AC7F65F00438503 /* AuthenticationManger.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				3FA1CB2F2ABF026700C20540 /* ApplicationUser.swift */,
 				3FA1CB312AC0164E00C20540 /* Expense.swift */,
 				3FA1CB332AC0172E00C20540 /* Category.swift */,
+				3F221FEE2AC8223900438503 /* Income.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,12 +452,14 @@
 				3FA1CB342AC0172E00C20540 /* Category.swift in Sources */,
 				3F6F6DE42AC53BAD00C95ACB /* TransactionDto.swift in Sources */,
 				3FA1CB3E2AC03D1100C20540 /* AddExpenseSheetView.swift in Sources */,
+				3F221FED2AC7F65F00438503 /* AuthenticationManger.swift in Sources */,
 				3FA1CB262ABEC06E00C20540 /* WalletGuardButtonView.swift in Sources */,
 				3F6F6DEC2AC54EB200C95ACB /* StringHepler.swift in Sources */,
 				3F6F6DF22AC5695500C95ACB /* BudgetViewModel.swift in Sources */,
 				3FA1CB382AC0181200C20540 /* InsightsView.swift in Sources */,
 				3FA1CB3A2AC0184A00C20540 /* BudgetView.swift in Sources */,
 				3F6F6DE72AC53C3200C95ACB /* TransactionType.swift in Sources */,
+				3F221FEF2AC8223900438503 /* Income.swift in Sources */,
 				3FA1CB362AC017EB00C20540 /* DashboardView.swift in Sources */,
 				3F6F6DDC2AC2B81000C95ACB /* PrimaryButton.swift in Sources */,
 				3FA1CB1A2AA2EEBE00C20540 /* UserAuthModel.swift in Sources */,
