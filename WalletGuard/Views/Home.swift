@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct Home: View {
     @State var name = ""
-    @State var user : User? = nil
+    @State var user : ApplicationUser? = nil
     @State private var isAddExpenseSheetOpen: Bool = false
     @State private var isAddIncomeSheetOpen: Bool = false
     @ObservedObject var homeVm = HomeViewModel()
@@ -50,7 +50,7 @@ struct Home: View {
                                     .foregroundColor(.green)
                                 
                                 HStack(spacing: 3){
-                                    Text("1000.23")
+                                    Text(String(format: "%.2f", homeVm.totalIncome))
                                         .foregroundColor(.white)
                                         .bold()
                                     
@@ -97,7 +97,7 @@ struct Home: View {
                                     .foregroundColor(.red)
                                 
                                 HStack(spacing: 3){
-                                    Text("1000.23")
+                                    Text(String(format: "%.2f", homeVm.totalExpenses))
                                         .foregroundColor(.white)
                                         .bold()
                                     
@@ -138,6 +138,19 @@ struct Home: View {
                 .padding(.top, 20)
                 .padding(.horizontal)
                 
+                Button(action: {
+                    
+                    Task{
+                        try? await homeVm.Test()
+                    }
+                    
+                }, label: {
+                    PrimaryButton(btnName: "Test")
+                        .padding(.top, 3)
+                })
+                
+                Spacer()
+                
                 ScrollView(){
                     
                     ForEach(homeVm.transactions) { transaction in
@@ -152,12 +165,6 @@ struct Home: View {
                 
             }
             .padding(.top, 20)
-            .onAppear{
-                Task{
-                    try? user =  await vm.getUser()
-                    name = user?.firstName ?? ""
-                }
-            }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black)
             .navigationTitle("Hi \(name)")
@@ -182,13 +189,17 @@ struct Home: View {
         }
         .onAppear{
             
-            homeVm.getTransactions()
+            Task{
+                try? user =  await vm.getUser()
+                name = user?.firstName ?? ""
+                await homeVm.getTransactions()
+            }
         }
         .sheet(isPresented: $isAddIncomeSheetOpen){
-            AddIncomeSheetView()
+            AddIncomeSheetView(homeVm: homeVm)
         }
         .sheet(isPresented: $isAddExpenseSheetOpen){
-            AddExpenseSheetView()
+            AddExpenseSheetView(homeVm: homeVm)
         }
        
     }

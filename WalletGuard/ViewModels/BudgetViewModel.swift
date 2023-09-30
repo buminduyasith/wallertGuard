@@ -15,21 +15,51 @@ import FirebaseFirestore
 import Combine
 import SwiftUI
 
+@MainActor
 class BudgetViewModel: ObservableObject {
     
+    @Published var totalIncome : Double = 0.0
+    @Published var totalExpenses : Double = 0.0
+    @Published var isLoading : Bool = false
     @Published var transactions : [TransactionDto] = []
     
-    
-    func getTransactions(){
+    func getTransactions() async{
         
-        transactions = [
-               TransactionDto(id: "1", title: "Groceries", type: .expense, price: 50.0, date: Date()),
-               TransactionDto(id: "2", title: "Salary", type: .income, price: 2000.0, date: Date()),
-               TransactionDto(id: "3", title: "Rent", type: .expense, price: 1000.0, date: Date()),
-               TransactionDto(id: "4", title: "Stocks", type: .income, price: 500.0, date: Date()),
-               TransactionDto(id: "5", title: "Utilities", type: .expense, price: 150.0, date: Date())
-           ]
-
+        isLoading = true;
+        transactions.removeAll()
+        
+        guard let expenses = try? await ApplicationDataManger.shared.getAllExpenseByUserId() else{
+            print("something happend wrong")
+            isLoading = false
+            return
+        }
+        
+        for expense in expenses{
+            
+            transactions.append(TransactionDto(title: expense.subTitle, type: .expense, price: expense.amount, date: expense.date))
+        }
+        
+        totalExpenses = expenses.reduce(0.0) { (result, expense) in
+            return result + expense.amount
+        }
+        
+        
+        guard let incomes = try? await ApplicationDataManger.shared.getAllIncomeByUserId() else{
+            print("something happend wrong")
+            isLoading = false
+            return
+        }
+        
+        totalIncome = incomes.reduce(0.0){ (result, income) in
+            return result + income.amount
+        }
+       
+        for income in incomes{
+            
+            transactions.append(TransactionDto(title: income.title, type: .income, price: income.amount, date: income.date))
+        }
+        
+        isLoading = false
     }
     
     

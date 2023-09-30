@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct User{
+struct ApplicationUser{
     
     var id: String
     var firstName: String
