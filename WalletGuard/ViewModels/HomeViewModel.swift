@@ -24,7 +24,7 @@ class HomeViewModel: ObservableObject {
         
         transactions.removeAll()
         
-        guard var expenses = try? await ApplicationDataManger.shared.getAllExpenseByUserId() else{
+        guard let expenses = try? await ApplicationDataManger.shared.getAllExpenseByUserId() else{
             print("something happend wrong")
             return
         }
@@ -39,7 +39,7 @@ class HomeViewModel: ObservableObject {
         }
         
         
-        guard var incomes = try? await ApplicationDataManger.shared.getAllIncomeByUserId() else{
+        guard let incomes = try? await ApplicationDataManger.shared.getAllIncomeByUserId() else{
             print("something happend wrong")
             return
         }
@@ -61,6 +61,7 @@ class HomeViewModel: ObservableObject {
 //           ]
 
     }
+   
     
     func AddExpense(expense : Expense) async throws{
         let db = Firestore.firestore()
@@ -73,6 +74,12 @@ class HomeViewModel: ObservableObject {
             "category": expense.category,
             "userId": currentUser.id,
         ])
+        
+        transactions.append(TransactionDto(title: expense.subTitle, type: .expense, price: expense.amount, date: expense.date))
+        
+        totalExpenses = totalExpenses + expense.amount
+        
+        print("updated income")
         
     }
     
@@ -87,6 +94,23 @@ class HomeViewModel: ObservableObject {
             "userId": currentUser.id,
         ])
         
+        transactions.append(TransactionDto(title: income.title, type: .income, price: income.amount, date: income.date))
+        
+        totalIncome = totalIncome + income.amount
+        
+        print("updated income")
+        
+    }
+    
+    func Test() async throws{
+        guard let expenses = try? await ApplicationDataManger.shared.getAllExpenseByUserId() else{
+            print("something happend wrong")
+            return
+        }
+        
+        totalIncome = totalIncome + 10
+        transactions.append(TransactionDto(title: "testing", type: .expense, price: totalIncome, date: Date.now))
+        print(totalIncome)
     }
     
     

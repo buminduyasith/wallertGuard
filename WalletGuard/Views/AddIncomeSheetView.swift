@@ -13,11 +13,11 @@ struct AddIncomeSheetView: View {
     @State private var amount: Double = 0
     @State private var date: Date = .init()
   
-    @ObservedObject private var homeVm  = HomeViewModel()
+    @ObservedObject private var homeVm : HomeViewModel
 
-    
-    init() {
+    init(homeVm : HomeViewModel) {
         
+          self.homeVm = homeVm
            //Use this if NavigationBarTitle is with Large Font
            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
@@ -96,6 +96,6 @@ struct AddIncomeSheetView: View {
 
 struct AddIncomeSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddIncomeSheetView()
+        AddIncomeSheetView(homeVm: HomeViewModel())
     }
 }

@@ -12,14 +12,15 @@ struct AddExpenseSheetView: View {
     @State private var title: String = ""
     @State private var amount: Double = 0
     @State private var date: Date = .init()
-    @State private var category: String = ""
+    @State private var category: String = "shopping"
     var categories : [String] = []
     
-    @ObservedObject private var homeVm  = HomeViewModel()
+    @ObservedObject private var homeVm: HomeViewModel
   
     
-    init() {
+    init(homeVm : HomeViewModel) {
         
+          self.homeVm = homeVm
           categories = ApplicationDataManger.shared.getAllCategories()
            //Use this if NavigationBarTitle is with Large Font
            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -123,6 +124,6 @@ struct AddExpenseSheetView: View {
 
 struct AddExpensesView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseSheetView()
+        AddExpenseSheetView(homeVm: HomeViewModel())
     }
 }

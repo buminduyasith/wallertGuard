@@ -28,7 +28,7 @@ class BudgetViewModel: ObservableObject {
         isLoading = true;
         transactions.removeAll()
         
-        guard var expenses = try? await ApplicationDataManger.shared.getAllExpenseByUserId() else{
+        guard let expenses = try? await ApplicationDataManger.shared.getAllExpenseByUserId() else{
             print("something happend wrong")
             isLoading = false
             return
@@ -44,7 +44,7 @@ class BudgetViewModel: ObservableObject {
         }
         
         
-        guard var incomes = try? await ApplicationDataManger.shared.getAllIncomeByUserId() else{
+        guard let incomes = try? await ApplicationDataManger.shared.getAllIncomeByUserId() else{
             print("something happend wrong")
             isLoading = false
             return

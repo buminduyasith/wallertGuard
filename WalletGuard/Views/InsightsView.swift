@@ -101,22 +101,6 @@ struct InsightsView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black)
             .navigationTitle("Insights")
-            
-                .toolbar{
-                    ToolbarItem(placement: .navigationBarTrailing){
-                        Button{
-                            isAddExpenseOpen = true
-                        }
-                    label:{
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title3)
-                    }
-                        
-                    }
-                }
-        }
-        .sheet(isPresented: $isAddExpenseOpen){
-            AddExpenseSheetView()
         }
     }
 }
