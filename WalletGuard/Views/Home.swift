@@ -138,19 +138,6 @@ struct Home: View {
                 .padding(.top, 20)
                 .padding(.horizontal)
                 
-                Button(action: {
-                    
-                    Task{
-                        try? await homeVm.Test()
-                    }
-                    
-                }, label: {
-                    PrimaryButton(btnName: "Test")
-                        .padding(.top, 3)
-                })
-                
-                Spacer()
-                
                 ScrollView(){
                     
                     ForEach(homeVm.transactions) { transaction in
