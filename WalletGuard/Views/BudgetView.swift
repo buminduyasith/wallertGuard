@@ -45,7 +45,8 @@ struct BudgetView: View {
                         Image(systemName: "calendar")
                             .foregroundColor(.blue)
                             .padding(.leading, 10)
-                        Text("2023-09 Balance")
+                       
+                        Text("\(Date.now, formatter: StringHepler.shared.shortDateFormatter) Balance")
                             .foregroundColor(.white)
                         
                         Spacer()
@@ -58,7 +59,7 @@ struct BudgetView: View {
                             .foregroundColor(.green)
                             .padding(.leading, 10)
                         
-                        Text("49, 500 Rs")
+                        Text(String(format: "%.2f", budgetVm.budgetInfo.amount))
                             .font(.title)
                             .foregroundColor(.white)
                         
@@ -153,6 +154,7 @@ struct BudgetView: View {
             .onAppear{
                 Task{
                     await budgetVm.getTransactions()
+                    await budgetVm.getBudget()
                 }
             }
             .frame(maxWidth: .infinity)
@@ -175,7 +177,7 @@ struct BudgetView: View {
                 }
         }
         .sheet(isPresented: $addExpense){
-            AddBudgetView()
+            AddBudgetView(budgetVM: budgetVm)
 //            Label("No expenses", systemImage: "tray.fill")
         }
     }

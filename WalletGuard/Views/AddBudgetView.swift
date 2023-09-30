@@ -15,8 +15,11 @@ struct AddBudgetView: View {
     @State private var selectedMonthIndex = 0
         let months = ["Jan - 1", "Feb - 2", "Mar - 3", "Apr - 4", "May - 5", "Jun - 6", "Jul - 7", "Aug - 8", "Sep - 9", "Oct - 10", "Nov - 11", "Dec - 12"]
     
-    init() {
+    @ObservedObject var budgetVm :BudgetViewModel
+    
+    init(budgetVM : BudgetViewModel) {
         
+        self.budgetVm = budgetVM
            //Use this if NavigationBarTitle is with Large Font
            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
@@ -90,7 +93,19 @@ struct AddBudgetView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing){
                     Button("Add"){
-                        dismiss()
+                        Task{
+                            do{
+                                try await budgetVm.createBudget(budget:Budget(title: title, amount: amount, year: year, month: selectedMonthIndex ))
+                                
+                                dismiss()
+                                
+                            }catch{
+                                
+                                print(error)
+                                dismiss()
+                                
+                            }
+                        }
                     }
                     .tint(Color.btnPrimary)
                 }
@@ -102,6 +117,6 @@ struct AddBudgetView: View {
 
 struct AddBudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        AddBudgetView()
+        AddBudgetView(budgetVM: BudgetViewModel())
     }
 }
