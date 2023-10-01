@@ -20,6 +20,7 @@ class BudgetViewModel: ObservableObject {
     
     @Published var totalIncome : Double = 0.0
     @Published var totalExpenses : Double = 0.0
+    @Published var budgetCompletePrecentage : CGFloat = 0.0
     @Published var isLoading : Bool = false
     @Published var transactions : [TransactionDto] = []
     @Published var budgetInfo : Budget = .init(title: "", amount: 0, year: 2023, month: 1)
@@ -86,6 +87,10 @@ class BudgetViewModel: ObservableObject {
         }
         
         budgetInfo = budget
+        
+        budgetCompletePrecentage = (totalExpenses / budget.amount) * 100
+        
+        print(budgetCompletePrecentage)
         
     }
     

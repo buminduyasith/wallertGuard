@@ -54,6 +54,11 @@ struct BudgetView: View {
                     .padding(.top)
                     
                     
+                    ProgressBar(actualWidth: 350, progressPrecentage: $budgetVm.budgetCompletePrecentage)
+                        .padding(.horizontal)
+                        .padding(.top,10)
+                    
+                    
                     HStack{
                         Image(systemName: "plus")
                             .foregroundColor(.green)
@@ -65,7 +70,6 @@ struct BudgetView: View {
                         
                         Spacer()
                     }
-                    .padding(.top, 5)
                     
                     HStack{
                         
@@ -88,7 +92,6 @@ struct BudgetView: View {
                             .padding(.trailing)
 
                     }
-                    .padding(.top, 5)
                     
                     HStack{
                         
@@ -109,7 +112,6 @@ struct BudgetView: View {
                             .padding(.trailing)
                         
                     }
-                    .padding(.top, 5)
                     .padding(.bottom, 10)
             
                 }

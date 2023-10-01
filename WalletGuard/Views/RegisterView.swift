@@ -31,9 +31,9 @@ struct RegisterView: View {
         VStack(alignment: .leading){
             
             HStack(spacing: 0){
-                Text("Create Your Account")
+                Text("Create Your \nAccount")
                     .fontWeight(Font.Weight.bold)
-                    .font(.system(size: 30))
+                    .font(.system(size: 28))
                     .foregroundColor(.white)
                 
                 Spacer()
@@ -77,6 +77,16 @@ struct RegisterView: View {
                 PrimaryButton(btnName: "Sign up")
             })
             
+            NavigationLink(destination: {
+                LoginView()
+            }, label: {
+                
+                Text("Already have an account? Log in")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                
+            })
+            .padding(.top, 40)
             Spacer()
            
         
