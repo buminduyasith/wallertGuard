@@ -19,6 +19,7 @@ class UserViewModel: ObservableObject {
     @Published var path = NavigationPath()
     
     func CreateNewAccount(user : ApplicationUser){
+        isProcessing = true
         let db = Firestore.firestore()
         Auth.auth().createUser(withEmail: user.email, password: user.password) { result, error in
             if error != nil {
@@ -46,6 +47,7 @@ class UserViewModel: ObservableObject {
                 }
                 
             }
+            self.isProcessing = false
         }
         print("created")
     }
@@ -54,14 +56,17 @@ class UserViewModel: ObservableObject {
     func Login(user: ApplicationUser) async{
         
         do{
+            isProcessing = true
             print(user.email)
             print(user.password)
             let authResult = try await Auth.auth().signIn(withEmail: user.email, password: user.password)
             isloggedIn = true;
+            isProcessing = false
             //path.append("dashboard")
             
         }
         catch{
+            isProcessing = false
             print(error)
         }
         

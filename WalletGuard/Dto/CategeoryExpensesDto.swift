@@ -22,3 +22,10 @@ struct SavingsDato: Identifiable {
     var id = UUID()
 }
 
+struct CategoryTotal: Identifiable {
+    var id = UUID()
+    var category: String
+    var totalAmount: Double
+}
+
+

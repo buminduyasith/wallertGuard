@@ -21,7 +21,15 @@ struct LoginView: View {
             DashboardView()
         }
         else{
-            content
+            
+            if (vm.isProcessing){
+                LoadingIndicator()
+                
+            }
+            else{
+                content
+            }
+           
         }
     }
     

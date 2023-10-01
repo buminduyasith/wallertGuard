@@ -28,7 +28,27 @@ class ApplicationDataManger {
     }
     
     func getAllCategories() -> [String]  {
-        categories = ["shopping", "education"]
+        categories = [
+                "shopping",
+                "education",
+                "food",
+                "transportation",
+                "entertainment",
+                "health",
+                "utilities",
+                "travel",
+                "other",
+                "clothing",
+                "rent",
+                "home improvement",
+                "gifts",
+                "hobbies",
+                "personal care",
+                "electronics",
+                "insurance",
+                "taxes",
+                "pets"
+            ]
         return categories
         
     }
