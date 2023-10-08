@@ -11,13 +11,29 @@ import Charts
 struct BudgetView: View {
     @State private var addExpense: Bool = false
     @State private var selection = 0
+    @State private var searchText = ""
     @ObservedObject var budgetVm = BudgetViewModel()
+    
+    var transactionList : [TransactionDto] {
+        if searchText.isEmpty {
+            return budgetVm.transactions
+        }
+        
+        return budgetVm.transactions.filter { transaction in
+            return transaction.title.lowercased().contains(searchText.lowercased())
+        }
+    }
+    
     init() {
            //Use this if NavigationBarTitle is with Large Font
            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
 
            //Use this if NavigationBarTitle is with displayMode = .inline
            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        UISearchBar.appearance().tintColor = UIColor.white
+        
+        
 
        }
     
@@ -34,6 +50,7 @@ struct BudgetView: View {
                     
                 }
                 .pickerStyle(SegmentedPickerStyle())
+                .padding(.horizontal)
                 
                 
                 VStack(alignment: .leading){
@@ -55,7 +72,7 @@ struct BudgetView: View {
                     
                     
                     ProgressBar(actualWidth: 350, progressPrecentage: $budgetVm.budgetCompletePrecentage)
-                        .padding(.horizontal)
+                        .padding(.horizontal, 10)
                         .padding(.top,10)
                     
                     
@@ -126,7 +143,7 @@ struct BudgetView: View {
                     if selection == 0 {
                         
 
-                        ForEach(budgetVm.transactions) { transaction in
+                        ForEach(transactionList) { transaction in
                             
                             if(transaction.type == .income){
                                 TransactionComponent(transaction: transaction)
@@ -137,7 +154,7 @@ struct BudgetView: View {
                     
                     else{
                         
-                        ForEach(budgetVm.transactions) { transaction in
+                        ForEach(transactionList) { transaction in
                             
                             if(transaction.type == .expense){
                                 TransactionComponent(transaction: transaction)
@@ -147,7 +164,9 @@ struct BudgetView: View {
                     }
 
                 }
-                
+                .searchable(text: $searchText)
+                .textCase(.none)
+                .foregroundColor(Color.white)
                 
                 Spacer()
                 
