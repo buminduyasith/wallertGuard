@@ -69,11 +69,22 @@ class ApplicationDataManger {
             
             let title = documentData["title"] as? String ?? ""
             let amount = documentData["amount"] as? Double ?? 0
-            let date  = documentData["date"] as? Date ?? Date.now
+          //  let date  = documentData["date"] as? Date ?? Date.now
             let category = documentData["category"] as? String ?? ""
             
-            print("\(document.documentID) => \(document.data())")
-            expenses.append(Expense(subTitle: title, amount: amount, date: date, category: category))
+            
+            guard let timestamp = documentData["date"] as? Timestamp  else {
+               
+                throw URLError(.badServerResponse)
+            }
+            
+            let seconds = TimeInterval(timestamp.seconds)
+            let nanoseconds = TimeInterval(timestamp.nanoseconds)
+            let date = Date(timeIntervalSince1970: seconds + (nanoseconds / 1_000_000_000))
+            print(date)
+           
+           // print("\(document.documentID) => \(document.data())")
+            expenses.append(Expense(documentId: document.documentID, subTitle: title, amount: amount, date: date, category: category))
             
         }
         
@@ -100,7 +111,7 @@ class ApplicationDataManger {
             let date  = documentData["date"] as? Date ?? Date.now
             
             print("\(document.documentID) => \(document.data())")
-            incomes.append(Income(title: title, amount: amount, date: date))
+            incomes.append(Income(documentId: document.documentID, title: title, amount: amount, date: date))
             
         }
         

@@ -20,10 +20,15 @@ class BudgetViewModel: ObservableObject {
     
     @Published var totalIncome : Double = 0.0
     @Published var totalExpenses : Double = 0.0
-    @Published var budgetCompletePrecentage : CGFloat = 100.0
+    @Published var budgetCompletePrecentage : CGFloat = 0.0
     @Published var isLoading : Bool = false
     @Published var transactions : [TransactionDto] = []
     @Published var budgetInfo : Budget = .init(title: "", amount: 0, year: 2023, month: 1)
+    
+    @Published  var title: String = ""
+    @Published  var amount: Double = 0
+    @Published var selectedMonthIndex: Int = 0
+    @Published  var year: Int = .init()
 
     func getTransactions() async{
         
@@ -77,6 +82,13 @@ class BudgetViewModel: ObservableObject {
         ])
         
         budgetInfo = budget
+        
+        if( totalExpenses > budget.amount){
+            budgetCompletePrecentage = 100
+            return
+        }
+        budgetCompletePrecentage = (totalExpenses / budget.amount) * 100
+        
     }
     
     func getBudget() async {
@@ -87,6 +99,11 @@ class BudgetViewModel: ObservableObject {
         }
         
         budgetInfo = budget
+        
+        title = budget.title
+        amount = budget.amount
+        year = budget.year
+        selectedMonthIndex = budget.month
         
         if( totalExpenses > budget.amount){
             budgetCompletePrecentage = 100

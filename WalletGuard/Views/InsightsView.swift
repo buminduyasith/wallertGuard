@@ -38,7 +38,7 @@ struct InsightsView: View {
                         
                         Chart{
                             ForEach(insightVM.chartExpensesData) { item in
-                                BarMark(x: .value("date", item.date), y: .value("amount", item.amount))
+                                BarMark(x: .value("date", item.date, unit: .day), y: .value("amount", item.amount))
                                     .foregroundStyle(Color.btnPrimary)
                                     
                             }

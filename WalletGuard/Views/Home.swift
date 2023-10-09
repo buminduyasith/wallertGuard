@@ -139,14 +139,32 @@ struct Home: View {
                 .padding(.horizontal)
                 
                 ScrollView(){
-                    
+
                     ForEach(homeVm.transactions) { transaction in
                         TransactionComponent(transaction: transaction)
                     }
-                   
+                    //.onDelete(perform: removeItem)
+
 
                 }
                 .padding(.top)
+                
+//                List{
+//
+//                    ForEach(homeVm.transactions, id: \.id) { transaction in
+//                        TransactionComponent(transaction: transaction)
+//                            .frame( maxWidth: .infinity)
+//
+//                    }
+//                    .onDelete(perform: removeItem)
+//                    .listRowBackground(Color.black)
+//                 //   .onDelete(perform: removeItem)
+//
+//
+//                }
+//                .frame( maxWidth: .infinity)
+//                .scrollContentBackground(.hidden)
+//                .background(.black)
                 
                 Spacer()
                 
@@ -189,6 +207,10 @@ struct Home: View {
             AddExpenseSheetView(homeVm: homeVm)
         }
        
+    }
+    
+    func removeItem(at offsets: IndexSet){
+        homeVm.transactions.remove(atOffsets: offsets)
     }
 }
 

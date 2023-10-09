@@ -10,7 +10,7 @@ import Foundation
 struct CategeoryExpensesDto: Identifiable {
     var id = UUID()
     let category: String
-    let amount: Double
+    var amount: Double
     let date: Date
 }
 

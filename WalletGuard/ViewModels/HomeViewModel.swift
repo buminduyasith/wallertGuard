@@ -79,7 +79,7 @@ class HomeViewModel: ObservableObject {
         
         totalExpenses = totalExpenses + expense.amount
         
-        print("updated income")
+        print("add expense \(expense.date)")
         
     }
     
